@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  db:
+    build: requirements/mariadb
+    container_name: db
+    env_file: .env
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - deNet
+
+  wordpress:
+    build: requirements/wordpress
+    container_name: wordpress
+    env_file: .env
+    restart: always
+    volumes:
+      - wp-data:/var/www/html
+    networks:
+      - deNet
+
+  nginx:
+    build: requirements/nginx
+    container_name: nginx
+    env_file: .env
+    restart: always
+    volumes:
+      - wp-data:/var/www/html
+    networks:
+      - deNet
+    ports:
+      - 443:443
+
+  ftp:
+    build: requirements/bonus/ftp
+    container_name: ftp
+    env_file: .env
+    restart: always
+    volumes:
+      - db-data:/var/ftp
+    networks:
+      - deNet
+
+volumes:
+  wp-data:
+    name: wp-data
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: '/home/den/Documents/volumes/wordpress'
+      o: 'bind'
+  
+  db-data:
+    name: db-data
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: '/home/den/Documents/volumes/db'
+      o: 'bind'
+
+networks:
+  deNet:
+    name: deNet
+    driver: bridge
