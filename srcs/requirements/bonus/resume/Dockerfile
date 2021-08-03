@@ -5,24 +5,17 @@ RUN		apk update && apk add openrc && rc default
 RUN		apk add nginx openssl &&\
 		mkdir -p /var/www/html &&\
 		adduser -D -g 'www' www &&\
-		chown -R www:www /var/www/html &&\
-		apk add php7 php7-fpm php7-mysqli \ 
-		php7-zlib php7-curl php7-mbstring \
-		php7-json php7-session
+		chown -R www:www /var/www/html
 
 RUN 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 		-subj '/C=RU/ST=Moscow/L=Moscow/O=42/OU=21/CN=monie' \
 		-keyout /etc/ssl/localhost.key \
 		-out /etc/ssl/localhost.crt
 
-COPY	conf/start.sh /
-
 COPY	conf/nginx.conf /etc/nginx/
 
-COPY	conf/index.html /var/www/html/
-
-COPY	conf/www.conf /etc/php7/php-fpm.d/
+COPY	conf/resume /var/www/html/resume
 
 EXPOSE	443
 
-CMD		["sh", "start.sh"]
+CMD		["nginx", "-g", "daemon off;"]
