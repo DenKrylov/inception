@@ -2,27 +2,18 @@ FROM	alpine:3.14
 
 RUN		apk update && apk add openrc && rc default
 
-RUN		apk add nginx openssl &&\
-		mkdir -p /var/www/html &&\
-		adduser -D -g 'www' www &&\
-		chown -R www:www /var/www/html &&\
-		apk add php7 php7-fpm php7-mysqli \ 
+RUN		apk add php7 php7-fpm php7-mysqli \ 
 		php7-zlib php7-curl php7-mbstring \
 		php7-json php7-session
 
-RUN 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-		-subj '/C=RU/ST=Moscow/L=Moscow/O=42/OU=21/CN=monie' \
-		-keyout /etc/ssl/localhost.key \
-		-out /etc/ssl/localhost.crt
+RUN		adduser -D -g 'www' www &&\
+		mkdir -p /var/www/html/adminer &&\
+		chown -R www:www /var/www/html/
 
-COPY	conf/start.sh /
-
-COPY	conf/nginx.conf /etc/nginx/
-
-COPY	conf/index.html /var/www/html/
+COPY	conf/adminer-4.8.1.php /var/www/html/adminer/index.php
 
 COPY	conf/www.conf /etc/php7/php-fpm.d/
 
-EXPOSE	443
+EXPOSE	9000
 
-CMD		["sh", "start.sh"]
+CMD		[ "php-fpm7", "--nodaemonize" ]
