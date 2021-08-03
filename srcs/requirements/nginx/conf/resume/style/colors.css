@@ -1,0 +1,20 @@
+:root {
+	/* DARK */
+	--main-dark-backgroundNormal: rgb(49,54,59);
+	--main-dark-backgroundAlternate: rgb(35,38,41);
+	--main-dark-foregroundInactive: rgb(189,195,199);
+	--main-dark-foregroundNormal: rgb(239,240,241);
+	/* LIGHT */
+	--main-light-backgroundNormal: rgb(239,240,241);
+	--main-light-backgroundAlternate: rgb(189,195,199);
+	--main-light-foregroundInactive: rgb(127,140,141);
+	--main-light-foregroundNormal: rgb(35,38,41);
+	/* STATIC */
+	--main-decorationFocus: rgb(61,174,233);
+	--main-decorationHover: rgb(147,206,233);
+	--main-foregroundLink: rgb(41,128,185);
+	--main-foregroundNegative: rgb(218,68,83);
+	--main-foregroundNeutral: rgb(246,116,0);
+	--main-foregroundPositive: rgb(39,174,96);
+	--main-foregroundVisited: rgb(127,140,141);
+}

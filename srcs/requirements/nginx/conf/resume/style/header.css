@@ -1,0 +1,21 @@
+.header {
+	flex-shrink: 0;
+	display: none;
+	flex-direction: row;
+	align-items: center;
+	height: 3rem;
+	background: var(--main-dark-backgroundAlternate);
+}
+
+.header_close {
+	flex-shrink: 0;
+	padding: 1rem;
+	border-right: 1px solid var(--main-foregroundVisited);
+	cursor: pointer;
+}
+
+.header_h2 {
+	flex: 1 0 auto;
+	display: flex;
+	justify-content: center;
+}

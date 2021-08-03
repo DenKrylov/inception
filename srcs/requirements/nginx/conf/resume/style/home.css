@@ -1,0 +1,50 @@
+.home {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: url("/img/1.jpg");
+	background-size: cover;
+}
+
+/* ----------------------------------------------------------------- */
+
+.home_name {
+	font-size: 5rem;
+	display: flex;
+}
+
+.home_firstName {
+	margin: 0 1rem;
+}
+
+.home_lastName {
+	margin: 0 1rem;
+	color: var(--main-decorationFocus);
+}
+
+/* ----------------------------------------------------------------- */
+
+.home_skill {
+	display: flex;
+	align-items: center;
+	font-size: 2rem;
+}
+
+.home_skillMy {
+	margin: 0 1rem;
+	font-weight: lighter;
+	color: var(--main-decorationHover);
+}
+/* ----------------------------------------------------------------- */
+
+.home_skillSkill {
+	border-bottom: 3px solid var(--main-decorationFocus);
+	box-sizing: border-box;
+}
+
+.home_skillDelete {
+	font-family: "Ubuntu-light";
+	font-size: 3rem;
+}

@@ -1,0 +1,14 @@
+.about_description {
+	min-width: 20rem;
+	max-width: 50rem;
+	padding-right: 3rem;
+}
+
+.about_info {
+	min-width: 20rem;
+}
+
+.about_li{
+	margin: 1rem 0;
+	
+}

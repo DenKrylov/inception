@@ -50,14 +50,6 @@ services:
     restart: always
     networks:
       - deNet
-  
-  resume:
-    build: requirements/bonus/resume
-    container_name: resume
-    env_file: .env
-    restart: always
-    networks:
-      - deNet
 
 volumes:
   wp-data:
