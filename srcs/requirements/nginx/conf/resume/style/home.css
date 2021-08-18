@@ -30,6 +30,7 @@
 	display: flex;
 	align-items: center;
 	font-size: 2rem;
+	width: 20rem;
 }
 
 .home_skillMy {
@@ -42,6 +43,7 @@
 .home_skillSkill {
 	border-bottom: 3px solid var(--main-decorationFocus);
 	box-sizing: border-box;
+	white-space: pre;
 }
 
 .home_skillDelete {

@@ -4,12 +4,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="style/about.css">
 	<link rel="stylesheet" href="style/colors.css">
+	<link rel="stylesheet" href="style/contact.css">
 	<link rel="stylesheet" href="style/header.css">
 	<link rel="stylesheet" href="style/home.css">
 	<link rel="stylesheet" href="style/nav.css">
+	<link rel="stylesheet" href="style/resume.css">
 	<link rel="stylesheet" href="style/style.css">
-	<title>Document</title>
+	<script src="script/vue.js"></script>
+	<title>Resume</title>
 </head>
 <body>
 	<div class="app">
@@ -20,15 +25,15 @@
 				</div>
 				<ul class="nav_ul">
 					<li class="nav_li nav_li_active">
-						<a class="a__active" href="/index.html"><p>HOME</p></a></li>
+						<a v-bind:class="activePage('homePage')" v-on:click="showHomePage()"><p>HOME</p></a></li>
 					<li class="nav_li">
-						<a href="/html/about.html"><p>ABOUT ME</p></a></li>
+						<a v-bind:class="activePage('aboutPage')" v-on:click="showAboutPage()"><p>ABOUT ME</p></a></li>
 					<li class="nav_li">
-						<a href="/html/resume.html"><p>RESUME</p></a></li>
+						<a v-bind:class="activePage('resumePage')" v-on:click="showResumePage()"><p>RESUME</p></a></li>
 					<li class="nav_li">
-						<a href="https://github.com/DenKrylov/"><p>PORTFOLIO</p></a></li>
+						<a href="https://github.com/DenKrylov/" target="_blank"><p>PORTFOLIO</p></a></li>
 					<li class="nav_li">
-						<a href="/html/contact.html"><p>CONTACT</p></a></li>
+						<a v-bind:class="activePage('contactPage')" v-on:click="showContactPage"><p>CONTACT</p></a></li>
 				</ul>
 			</div>
 			<div class="nav_footer">
@@ -45,24 +50,156 @@
 				<h2 class="header_h2">DENIS KRYLOV</h2>
 			</header>
 			<main class="main">
-				<div class="home">
+				<div class="home" v-show="homePage">
 					<div class="home_name">
 						<p class="home_firstName">DENIS</p>
 						<p class="home_lastName">KRYLOV</p>
 					</div>
 					<div class="home_skill">
 						<p class="home_skillMy">I am</p>
-						<p class="home_skillSkill">Junior Trainee </p>
+						<p class="home_skillSkill">{{ string }}</p>
 						<p class="home_skillDelete">|</p>
 					</div>
 				</div>
-				<div class="about"></div>
-				<div class="resume"></div>
-				<div class="portfolio"></div>
-				<div class="blog"></div>
-				<div class="contact"></div>
+				<div class="page about" v-show="aboutPage">
+					<div class="page_header">
+						<h3>About Me</h3>
+						<p>icon</p>
+					</div>
+					<div class="page_body">
+						<div class="about_description">
+							<h3 class="text_header">UI/UX Designer & Developer</h3>
+							<p class="text text__light">
+								THERE WILL BE A DESCRIPTION!!!</br>Dolor reprehenderit aut repudiandae maiores recusandae. Consequatur dolor nisi labore commodi ipsa? Excepturi velit
+								laboriosam at voluptatibus cupiditate est vel. Dolorem praesentium itaque fugiat placeat quas consequatur? Obcaecati natus
+								rerum<br><br>
+								Consectetur consectetur nesciunt nesciunt blanditiis amet? Quod quis unde aliquid excepturi laudantium? Illo architecto
+								aliquam velit illo magnam neque perferendis sint Incidunt eius ipsa inventore labore eos velit. Minus hic magni reiciendis
+								necessitatibus ex Quidem officia deleniti accusamus obcaecati dolores. Porro culpa quibusdam impedit porro praesentium
+								excepturi. Alias ab consequatur?
+							</p>
+						</div>
+						<div class="about_info">
+							<h3 class="page_headers">Personal Information</h3>
+							<ul>
+								<li class="about_li"><p class="text text__underline">Name</p><p class="text text__light"> : Denis Krylov</p></li>
+								<li class="about_li"><p class="text text__underline">Age</p><p class="text text__light"> : 33 Years</p></li>
+								<li class="about_li"><p class="text text__underline">Residence</p><p class="text text__light"> : Moscow, RUS</p></li>
+								<li class="about_li"><p class="text text__underline">Email</p><p class="text text__light"> : deniskrilov87@gmail.com</p></li>
+								<li class="about_li"><p class="text text__underline">Phone</p><p class="text text__light"> : (+7) 985 937 2191</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="page resume" v-show="resumePage">
+					<div class="page_header">
+						<h3>Resume Me</h3>
+						<p>icon</p>
+					</div>
+					<div class="page resume">
+						<div  class="page_resumeRow">
+							<div class="page_resumeData">
+								<p>
+									Ноябрь 2016 — Апрель 2019</br>
+									2 года 6 месяцев</br>
+									СуперОкс</br>
+								</p>
+							</div>
+							<div  class="page_resumeDescription">
+								<p>
+									www.superox.ru/</br>
+									Технический специалист</br>
+									- Создание веб интерфейса https://github.com/KrylovDen (проект остановлен)</br>
+									- Настройка рабочих мест пользователей.</br>
+									- Сборка системных блоков</br>
+									- Установка ОС и ПО.</br>
+									- Техподдержка пользователей.</br>
+									- Выполнение монтажных работ (монтаж ЛВС).</br>
+									- Мелкий ремонта оборудования. Диагностика неисправности оборудования.</br>
+									- Обслуживание парка компьютеров более 90 шт</br>
+									- Оптимизация установки Windows.(создание собственных дистрибутивов, с предустановленными драйверами и по)</br>
+									- Работа с hyper-v (установка сервера hyper-v и создание виртуальных машин)</br>
+								</p>
+							</div>
+						</div>
+						<div class="page_resumeRow">
+							<div class="page_resumeData">
+								<p>
+									Июнь 2016 — Сентябрь 2016</br>
+									4 месяца</br>
+									ИНФАРС</br>
+								</p>
+							</div>
+							<div  class="page_resumeDescription">
+								<p>
+									Россия, www.infars.ru</br>
+									Услуги для бизнеса... Показать еще</br>
+									Системный администратор</br>
+									- Администрирование Windows2012R2 (AD‚ DNS‚ DHCP)</br>
+									- Оптимизация установки Windows.(создание собственных дистрибутивов, с предустановленными драйверами и по)</br>
+									- Настройка рабочих мест пользователей.</br>
+									- Техподдержка пользователей.</br>
+									- Техподдержка клиентов.</br>
+									- Установка и настройка openfire (Linux).</br>
+									- Работа с VMware (установка сервера и создание виртуальных машин).</br>
+									- Ведение журнала работ в planfix.</br>
+								</p>
+							</div>
+						</div>
+						<div class="page_resumeRow">
+							<div class="page_resumeData">
+								<p>
+									Июнь 2013 — Июнь 2016</br>
+									3 года 1 месяц</br>
+									Владимирская фабрика девер</br>ей
+								</p>
+							</div>
+							<div  class="page_resumeDescription">
+								<p>
+									Ковров, vfd.ru/</br>
+									Руководитель сервисной службы</br>
+									- Приём и распределение заявок, а также контроль за их выполнением;</br>
+									- Настройка рабочих мест пользователей.</br>
+									- Сборка системных блоков</br>
+									- Установка ОС и ПО.</br>
+									- Техподдержка пользователей.</br>
+									- Выполнение монтажных работ (монтаж ЛВС).</br>
+									- Мелкий ремонта оборудования. Диагностика неисправности оборудования.</br>
+									- Работа с поставщиками оборудования (закупка и планирование бюджета).</br>
+									- Администрирование Kaspersky Security Center.</br>
+									- Обслуживание парка компьютеров более 250 шт</br>
+									- Оптимизация установки Windows.(создание собственных дистрибутивов, с предустановленными драйверами и по)</br>
+									- Работа с hyper-v (установка сервера hyper-v и создание виртуальных машин)</br>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page contact" v-show="contactPage">
+					<h3 class="text__underline">LET'S TALK</h3>
+					<form action="contact_form">
+						<div class="contact_formStr">
+							<div>
+								<p>Name</p>
+								<input class="input" type="text">
+							</div>
+							<div>
+								<p>Email</p>
+								<input class="input" type="email">
+							</div>
+						</div>
+						<div class="textarea">
+							<label class="textarea_head" for="story">How can we help you?</label>
+							<textarea class="textarea_body" id="story" name="story"
+									rows="5" cols="33">
+							</textarea>
+						</div>
+						<input class="input_btn" type="button" value="SEND MESSAGE">
+					</form>
+				</div>
 			</main>
 		</div>
 	</div>
+	<script src="script/app.js"></script>
 </body>
 </html>

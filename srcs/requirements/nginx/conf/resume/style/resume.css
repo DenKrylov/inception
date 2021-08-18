@@ -1,0 +1,14 @@
+.resume {
+	display: flex;
+	flex-direction: column;
+}
+
+.page_resumeRow {
+	display: flex;
+	flex-direction: row;
+	margin: 1rem;
+}
+
+.page_resumeData {
+	width: 30rem;
+}
