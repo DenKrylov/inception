@@ -39,7 +39,6 @@ sudo snap install code --classic &&
 echo 14 >> /home/den/Desktop/report &&\
 sudo apt install filezilla &&
 echo 15 >> /home/den/Desktop/report &&\
-sudo rm -rf /home/$USER/Documents/volumes/
 mkdir -p /home/$USER/Documents/volumes/db
 mkdir -p /home/$USER/Documents/volumes/wordpress
 echo 16 >> /home/den/Desktop/report &&\
