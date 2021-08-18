@@ -18,7 +18,7 @@ sudo apt update &&\
 echo 6 >> /home/den/Desktop/report &&\
 sudo apt install -y make docker-ce docker-ce-cli containerd.io &&\
 echo 7 >> /home/den/Desktop/report &&\
-sudo usermod -aG docker $USER &&\
+sudo groupadd docker && sudo usermod -aG docker $USER &&\
 echo 8  >> /home/den/Desktop/report &&\
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&\
 echo 9 >> /home/den/Desktop/report &&\
