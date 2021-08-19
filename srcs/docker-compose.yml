@@ -51,6 +51,16 @@ services:
     networks:
       - deNet
 
+  resume:
+    build: requirements/bonus/resume
+    container_name: resume
+    env_file: .env
+    restart: always
+    networks:
+      - deNet
+    ports:
+      - 8080:80
+
 volumes:
   wp-data:
     name: wp-data
