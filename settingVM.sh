@@ -37,7 +37,7 @@ ff02::2    ip6-allrouters" > /etc/hosts &&\
 echo 13 >> /home/den/Desktop/report &&\
 sudo snap install code --classic &&
 echo 14 >> /home/den/Desktop/report &&\
-sudo apt install filezilla &&
+sudo apt install -y filezilla &&
 echo 15 >> /home/den/Desktop/report &&\
 mkdir -p /home/$USER/Documents/volumes/db
 mkdir -p /home/$USER/Documents/volumes/wordpress
