@@ -31,17 +31,19 @@ services:
     networks:
       - deNet
     ports:
-      - 443:443
+      - "443:443"
 
-  ftp:
-    build: requirements/bonus/ftp
-    container_name: ftp
+  ftps:
+    build: requirements/bonus/ftps
+    container_name: ftps
     env_file: .env
     restart: always
     volumes:
-      - db-data:/var/ftp
-    networks:
-      - deNet
+      - wp-data:/var/www/html
+    ports:
+      - "20:20"
+      - "21:21"
+      - "30000:30000"
   
   adminer:
     build: requirements/bonus/adminer
