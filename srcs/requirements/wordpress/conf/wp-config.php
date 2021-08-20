@@ -7,8 +7,6 @@ define( 'DB_USER', 'monie' );
 define( 'DB_PASSWORD', '!Q2w3e4r5t' );
 
 define( 'DB_HOST', 'db');
-// define( 'WP_HOME', 'http://192.168.1.201/');
-// define( 'WP_SITEURL', 'http://192.168.1.201/');
 define( 'WP_HOME', 'https://monie.42.fr');
 define( 'WP_SITEURL', 'https://monie.42.fr');
 define( 'DB_CHARSET', 'utf8' );
